@@ -1,4 +1,5 @@
 // components/Footer.jsx
+import Image from "next/image";
 
 const WA_NUMBER = "+971553945441";
 const WA_LINK = `https://wa.me/${WA_NUMBER.replace(/\D/g, "")}?text=${encodeURIComponent(
@@ -12,12 +13,14 @@ export default function Footer() {
                 {/* GRID LAYOUT FOR BETTER RESPONSIVENESS */}
                 <div className="grid gap-4 sm:gap-5 md:grid-cols-3 md:items-center">
                     {/* Left: Logo + text */}
-                    <div className="flex items-center gap-3 justify-center md:justify-start">
-                        <div className="relative">
-                            <div className="h-9 w-9 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-md">
-                                <span className="text-white font-extrabold text-sm">B</span>
-                            </div>
-                            <div className="absolute -inset-[1px] rounded-2xl border border-white/10 pointer-events-none" />
+                    <div className="flex items-center gap-1 justify-center md:justify-start">
+                        <div className="relative h-12 w-12">
+                            <Image
+                                src="/images/logo.png"
+                                alt="BuildSmart logo"
+                                fill
+                                className="object-contain"
+                            />
                         </div>
 
                         <div className="leading-tight text-center md:text-left">
@@ -27,6 +30,7 @@ export default function Footer() {
                             </p>
                         </div>
                     </div>
+
 
                     {/* Middle: Links */}
                     <nav className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[11px] sm:text-xs text-slate-400">

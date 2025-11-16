@@ -1,6 +1,7 @@
 // components/Navbar.jsx
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const WA_NUMBER = "+971553945441";
 const WA_LINK = `https://wa.me/${WA_NUMBER.replace(/\D/g, "")}?text=${encodeURIComponent(
@@ -71,21 +72,29 @@ export default function Navbar() {
 
             <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 h-16 flex items-center justify-between">
                 {/* LOGO */}
-                <div className="flex items-center gap-3">
-                    <div className="relative">
-                        <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center">
-                            <span className="text-white font-extrabold text-base">B</span>
-                        </div>
-                        <div className="absolute -inset-[2px] rounded-3xl border border-white/15" />
+
+                <div className="flex items-center gap-1">
+                    <div className="relative h-14 w-14">
+                        <Image
+                            src="/images/logo.png"
+                            alt="BuildSmart logo"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
                     </div>
 
                     <div className="leading-tight">
-                        <p className="text-lg font-semibold text-white">BuildSmart</p>
+                        <p className="text-lg font-semibold tracking-tight text-white">
+                            BuildSmart
+                        </p>
                         <p className="text-[11px] text-slate-400">
                             Websites • Software • Automations
                         </p>
                     </div>
                 </div>
+
+
 
                 {/* DESKTOP NAV */}
                 <nav className="hidden md:flex items-center gap-8 text-[0.95rem] font-medium">
@@ -94,8 +103,8 @@ export default function Navbar() {
                             key={link.href}
                             onClick={() => handleNavClick(link.href)}
                             className={`relative transition ${active === link.id
-                                    ? "text-white"
-                                    : "text-slate-300 hover:text-white"
+                                ? "text-white"
+                                : "text-slate-300 hover:text-white"
                                 }`}
                         >
                             {link.label}
@@ -136,8 +145,8 @@ export default function Navbar() {
                                 key={link.href}
                                 onClick={() => handleNavClick(link.href)}
                                 className={`w-full text-left text-[0.95rem] font-medium py-2 rounded-lg transition ${active === link.id
-                                        ? "bg-slate-900 text-white"
-                                        : "text-slate-300 hover:bg-slate-900 hover:text-white"
+                                    ? "bg-slate-900 text-white"
+                                    : "text-slate-300 hover:bg-slate-900 hover:text-white"
                                     }`}
                             >
                                 {link.label}
